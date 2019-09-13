@@ -3,6 +3,8 @@ Ansible Role: vSphere-Graphite
 
 Launches vSphere-Graphite docker container with persistent configuration
 
+Configuration file is stored in /var/vsphere-graphite/config on the docker host and should reload itself when changes are made without needing to restart the container.
+
 Requirements
 ------------
 
