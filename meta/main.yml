@@ -1,0 +1,35 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: josephrpalmer
+  description: vSphere-Graphite Docker Deployment
+  company: The Ryan-Palmer Group
+  license: license (GPL-3.0-only)
+
+  min_ansible_version: 2.4
+
+  platforms:
+      - name: EL
+        versions:
+        - 6
+        - 7
+      - name: Fedora
+        versions:
+          - all
+      - name: Debian
+        versions:
+          - wheezy
+          - jessie
+          - stretch
+          - buster
+      - name: Ubuntu
+        versions:
+          - precise
+          - trusty
+          - xenial
+          - bionic
+
+  galaxy_tags:
+    - vsphere
+    - vmware

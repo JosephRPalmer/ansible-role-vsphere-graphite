@@ -1,0 +1,30 @@
+---
+- name: Install dependent python modules
+  pip:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - docker
+    - docker-compose
+
+- name: Create vSphere-Graphite Config Directory
+  file:
+    path: /var/vsphere-graphite/config
+    state: directory
+    mode: '0755'
+    recurse: yes
+
+
+- copy:
+    src: "{{ role_path }}/files/vsphere-graphite.json"
+    dest: /var/vsphere-graphite/config
+    force: no
+
+- name: start vSphere-Graphite
+  docker_container:
+      name: vsphere-graphite
+      image: "cblomart/vsphere-graphite"
+      volumes:
+        - /var/vsphere-graphite/config/vsphere-graphite.json:/etc/vsphere-graphite.json
+
+
